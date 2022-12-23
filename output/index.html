@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="snowstorm.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.core.min.js" integrity="sha512-+wqa4/aOL4vwhL637A4p+6epqhUHDqpEfYJa1+PlzlMf908CSOb3xtIeKwZWh5Q0Q/R2nYUKxH4vvcQg+k8KKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+  </head>
+  <body>
+    <main id="container">
+      <script src="https://pixijs.download/release/pixi.js"></script>
+      <script type="module" src="script.js"></script>
+    </main>
+    
+    <script>
+      snowStorm.snowColor = '#fff';
+      snowStorm.flakesMaxActive = 96;
+      snowStorm.animationInterval = 500;
+      
+      snowStorm.followMouse = false;
+      // 3. Allow the snow to flicker in and out of the view
+      snowStorm.useTwinkleEffect = false; 
+      // 4. Start the snowstorm!
+      snowStorm.start();
+    </script>
+    <div class="text">Happy Holidays</div>
+  </body>
+</html>

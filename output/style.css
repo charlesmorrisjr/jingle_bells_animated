@@ -1,0 +1,25 @@
+body {
+  /* background: #222222; */
+  background: black;
+  font-size: 100%;
+}
+
+#container {
+  background: #000;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+  background: blue;
+}
+
+.text {
+  color: white;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 8rem;
+  text-align: center;
+}

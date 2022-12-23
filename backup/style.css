@@ -1,0 +1,40 @@
+body {
+  background: #222222;
+}
+
+.container {
+  display: flex;
+  background: #000;
+  height: 1024px;
+  flex-direction: column;
+  align-items: center;
+}
+
+#tree {
+  max-width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.face {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+
+#play {
+  height: 50px;
+}
+
+#tree {
+  padding-bottom: 100px;
+  margin-bottom: 100px;
+}
+
+#face1 {
+  position: absolute;
+  top: 0;
+  left: 30vw;
+}
