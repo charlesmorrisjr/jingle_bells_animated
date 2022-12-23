@@ -91,15 +91,6 @@ for (let i = 0; i < NUM_FACES; i++) {
   app.stage.addChild(face[i]);
 }
 
-// Circle + line style 1
-// let graphics = new PIXI.Graphics();
-// graphics.lineStyle(2, 0xFFFFFF, 1);
-// graphics.drawCircle(face[0].x, face[0].y, FACE_SIZE / 2 + 1);
-// graphics.endFill();
-
-// app.stage.addChild(graphics);
-// graphics.scale.x=1.;
-
 function animate(face, faceMask) {
   function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -133,7 +124,7 @@ function addAnimation(id, pos) {
 let tl = gsap.timeline();
 
 let animationTimeline = [0.1, 0.35, 0.6, 1.1, 1.35, 1.6, 2.1, 2.35, 2.6, 3.1, 3.2, 4.3, 4.55, 4.8, 5.2, 5.3, 5.55, 5.8, 6.1, 6.4, 6.65, 6.9, 7.15];
-let timelineOffset = isMobile ? 0.6 : 0;
+let timelineOffset = isMobile ? 0.8 : 0;
 
 for (let pos = 0; pos < animationTimeline.length; pos++) {
   // addAnimation(pos % NUM_FACES, animationTimeline[pos]);
