@@ -27,6 +27,6 @@ and (min-device-width : 320px)
 and (max-device-width : 480px) {
   #container {
     /* height: 100rem; */
-    align-items: unset;
+    /* align-items: unset; */
   }
 }
