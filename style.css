@@ -7,6 +7,7 @@ body {
 #container {
   background: #000;
   height: 950px;
+  min-width: 40rem;
   display: flex;
   flex-direction: column-reverse;
   /* justify-content: center; */
@@ -23,6 +24,14 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-size: 4.4rem;
   text-align: center;
-  margin: 0;
-  padding: 0;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+  #container {
+    height: 100rem;
+    align-items: unset;
+  }
 }
