@@ -1,6 +1,6 @@
 const NUM_FACES = 9;
 const FACE_SIZE = 45;
-const TREE_WIDTH = 660, TREE_HEIGHT = 950;
+const TREE_WIDTH = 660, TREE_HEIGHT = 900;
 const SCREEN_CENTER_X = Math.floor(window.innerWidth / 2)
 const SCREEN_CENTER_Y = Math.floor(window.innerHeight / 2)
 
@@ -24,9 +24,9 @@ let isMobile = false;
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
   isMobile = true;
 }
-document.querySelector('button').onclick = function () {
-  sound.play();
-};
+// document.querySelector('button').onclick = function () {
+//   sound.play();
+// };
 
 let sound = new Audio('resources/jingle-bells-orchestra-clip.mp3');
 sound.load();
@@ -40,34 +40,23 @@ let app = new PIXI.Application({
   // resizeTo: window,
 });
 
-// app.renderer.resize(window.innerWidth, window.innerHeight);
-
-// document.body.appendChild(app.view);
 document.getElementById('container').appendChild(app.view);
-
-// app.renderer.view.style.position = "relative";
-// app.renderer.view.style.top = "50%";
-// app.renderer.view.style.left = "50%";
 
 // Inner radius of the circle
 const radius = FACE_SIZE / 2;
 
-// The blur amount
-const blurSize = 0;
-
 const circle = new PIXI.Graphics()
 .beginFill(0xFF0000)
-.drawCircle(radius + blurSize, radius + blurSize, radius)
+.drawCircle(radius, radius, radius)
 .endFill();
-// circle.filters = [new PIXI.filters.BlurFilter(blurSize)];
 
-const bounds = new PIXI.Rectangle(0, 0, (radius + blurSize) * 2, (radius + blurSize) * 2);
+const bounds = new PIXI.Rectangle(0, 0, radius * 2, radius * 2);
 const texture = app.renderer.generateTexture(circle, PIXI.SCALE_MODES.NEAREST, 1, bounds);
 let faceMask = [];
 
 let face = [];
 for (let i = 0; i <= NUM_FACES; i++) {
-  face[i] = PIXI.Sprite.from('resources/my-handsome-face.jpg');
+  face[i] = PIXI.Sprite.from('resources/face1.jpg');
   face[i].width = FACE_SIZE;
   face[i].height = FACE_SIZE;
   faceMask[i] = new PIXI.Sprite(texture);
@@ -148,6 +137,8 @@ let timelineOffset = isMobile ? 0.6 : 0;
 
 for (let pos = 0; pos < animationTimeline.length; pos++) {
   // addAnimation(pos % NUM_FACES, animationTimeline[pos]);
+  addAnimation(Math.floor(Math.random() * NUM_FACES), timelineOffset + animationTimeline[pos]);
+  continue;
   if (!isMobile) {
     addAnimation(Math.floor(Math.random() * NUM_FACES), timelineOffset + animationTimeline[pos]);
   } else {

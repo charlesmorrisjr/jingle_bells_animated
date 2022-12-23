@@ -11,10 +11,9 @@ body {
   justify-content: center;
 }
 
-.box {
-  height: 100px;
-  width: 100px;
-  background: blue;
+.button {
+  min-height: 3rem;
+  min-width: 5rem;
 }
 
 .text {

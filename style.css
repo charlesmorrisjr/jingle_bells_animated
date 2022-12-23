@@ -6,9 +6,11 @@ body {
 
 #container {
   background: #000;
-  height: 800px;
+  height: 950px;
   display: flex;
-  justify-content: center;
+  flex-direction: column-reverse;
+  /* justify-content: center; */
+  align-items: center;
 }
 
 .button {
@@ -19,6 +21,8 @@ body {
 .text {
   color: white;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 8rem;
+  font-size: 6rem;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
