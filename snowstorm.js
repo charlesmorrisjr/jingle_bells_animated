@@ -34,6 +34,9 @@ var snowStorm = (function(window, document) {
   this.usePositionFixed = false;  // true = snow does not shift vertically when scrolling. May increase CPU load, disabled by default - if enabled, used only where supported
   this.usePixelPosition = false;  // Whether to use pixel values for snow top/left vs. percentages. Auto-enabled if body is position:relative or targetElement is specified.
 
+  this.startFull = true;          // Starts the animation with snowflakes already on the screen.
+                                  // Added 12-25-2022 by Charles Morris Jr.
+
   // --- less-used bits ---
 
   this.freezeOnBlur = true;       // Only snow when the window is in focus (foreground.) Saves CPU.
@@ -559,7 +562,17 @@ var snowStorm = (function(window, document) {
   this.createSnow = function(limit,allowInactive) {
     var i;
     for (i=0; i<limit; i++) {
-      storm.flakes[storm.flakes.length] = new storm.SnowFlake(parseInt(rnd(flakeTypes),10));
+      storm.flakes[storm.flakes.length] = new storm.SnowFlake(parseInt(rnd(flakeTypes), 10));
+      
+      // Starts the animation with snowflakes already on the screen
+      // Added 12-25-2022 by Charles Morris Jr.
+      if (this.startFull) {
+        storm.flakes.forEach(flake => {
+          flake.x = Math.floor(Math.random() * screenX);
+          flake.y = Math.floor(Math.random() * screenY);
+        });
+      }
+      
       if (allowInactive || i>storm.flakesMaxActive) {
         storm.flakes[storm.flakes.length-1].active = -1;
       }

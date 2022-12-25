@@ -1,4 +1,4 @@
-const NUM_FACES = 9;
+const NUM_FACES = 9;    // Max is 15
 const FACE_SIZE = 45;
 const TREE_WIDTH = 660, TREE_HEIGHT = 900;
 const SCREEN_CENTER_X = Math.floor(window.innerWidth / 2)
@@ -16,7 +16,7 @@ const SCREEN_CENTER_Y = Math.floor(window.innerHeight / 2)
 //   }
 // });
 
-// Check if mobile because sound is delayed by 0.5 seconds
+// Check if mobile because sound is delayed by 0.8 seconds
 // Sound isn't delayed on a desktop browser pretending to be mobile,
 // but it is actually delayed on a real phone.
 let isMobile = false;
@@ -34,10 +34,6 @@ sound.load();
 let app = new PIXI.Application({
   width: TREE_WIDTH,
   height: TREE_HEIGHT,
-  // resolution: window.devicePixelRatio || 1,
-  // autoDensity: true,
-  // backgroundColor: background,
-  // resizeTo: window,
 });
 
 document.getElementById('container').appendChild(app.view);
@@ -57,6 +53,7 @@ let faceMask = [];
 let face = [];
 for (let i = 0; i <= NUM_FACES; i++) {
   face[i] = PIXI.Sprite.from('resources/face1.jpg');
+  // face[i] = PIXI.Sprite.from(`resources/face${i + 1}.jpg`);
   face[i].width = FACE_SIZE;
   face[i].height = FACE_SIZE;
   faceMask[i] = new PIXI.Sprite(texture);
@@ -74,7 +71,13 @@ let facePos = [{x: 335, y: 250},
                {x: 200, y: 620},
                {x: 170, y: 760},
                {x: 346, y: 718},
-               {x: 470, y: 760}];
+               {x: 470, y: 760},
+               {x: 440, y: 675},
+               {x: 220, y: 460},
+               {x: 260, y: 820},
+               {x: 120, y: 680},
+               {x: 520, y: 630},
+               {x: 400, y: 830}];
 
 
 for (let i = 0; i < NUM_FACES; i++) {
@@ -127,8 +130,8 @@ let animationTimeline = [0.1, 0.35, 0.6, 1.1, 1.35, 1.6, 2.1, 2.35, 2.6, 3.1, 3.
 let timelineOffset = isMobile ? 0.8 : 0;
 
 for (let pos = 0; pos < animationTimeline.length; pos++) {
-  // addAnimation(pos % NUM_FACES, animationTimeline[pos]);
-  addAnimation(Math.floor(Math.random() * NUM_FACES), timelineOffset + animationTimeline[pos]);
+  addAnimation(pos % NUM_FACES, animationTimeline[pos]);
+  // addAnimation(Math.floor(Math.random() * NUM_FACES), timelineOffset + animationTimeline[pos]);
   continue;
   if (!isMobile) {
     addAnimation(Math.floor(Math.random() * NUM_FACES), timelineOffset + animationTimeline[pos]);
